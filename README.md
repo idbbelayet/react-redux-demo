@@ -1,12 +1,13 @@
 # React Redux Demo
 
-This project demonstrates the integration of React with Redux for state management.
+This project demonstrates the integration of **React** with **Redux** for state management.
 
 ## Features
 
 - React functional components
 - Redux for global state management
 - Example actions and reducers
+- Simple UI to interact with the store
 
 ## Getting Started
 
@@ -23,13 +24,11 @@ This project demonstrates the integration of React with Redux for state manageme
 ## Folder Structure
 
 ```
-react-redux-demo/
-├── src/
-│   ├── components/
-│   ├── redux/
-│   └── App.js
-├── package.json
-└── README.md
+src/
+  components/
+  store/
+  App.js
+  index.js
 ```
 
 ## Learn More
@@ -39,4 +38,4 @@ react-redux-demo/
 
 ---
 
-Feel free to contribute or raise issues!
+**License:** MIT
