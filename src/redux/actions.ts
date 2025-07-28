@@ -6,7 +6,7 @@ export const TOGGLE_TODO = "TOGGLE_TODO";
 
 export const addTodo = (text: string) => ({
   type: ADD_TODO,
-  payload: { text },
+  payload: { text },  
 });
 
 export const updateTodo = (id: number, text: string) => ({

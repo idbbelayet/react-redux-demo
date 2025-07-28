@@ -1,16 +1,12 @@
 import React, { useState } from "react";
-import { type Todo } from "../types/todo";
-import {type IIconProps } from '@fluentui/react';
+import type { TodoProps } from "../types/todoProps";
+
+ 
 import {  PrimaryButton,ActionButton } from '@fluentui/react/lib/Button';
 import { TextField } from '@fluentui/react/lib/TextField';
-interface Props {
-  todo: Todo;
-  onToggle: (id: number) => void;
-  onDelete: (id: number) => void;
-  onUpdate: (id: number, text: string) => void;
-}
-const addFriendIcon: IIconProps = { iconName: 'AddFriend' };
-const TodoItem: React.FC<Props> = ({ todo, onToggle, onDelete, onUpdate }) => {
+
+ 
+const TodoItem: React.FC<TodoProps> = ({ todo, onToggle, onDelete, onUpdate }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [text, setText] = useState(todo.text);
 
@@ -18,7 +14,7 @@ const TodoItem: React.FC<Props> = ({ todo, onToggle, onDelete, onUpdate }) => {
     onUpdate(todo.id, text);
     setIsEditing(false);
   };
-
+ 
   return (
     <li>
       {isEditing ? (
@@ -35,7 +31,7 @@ const TodoItem: React.FC<Props> = ({ todo, onToggle, onDelete, onUpdate }) => {
           >
             {todo.text}
           </span>
-          <ActionButton iconProps={addFriendIcon} onClick={() => setIsEditing(true)}>Edit</ActionButton>
+          <ActionButton onClick={() => setIsEditing(true)}>Edit</ActionButton>
           <ActionButton onClick={() => onDelete(todo.id)}>Delete</ActionButton>
         </div>
       )}

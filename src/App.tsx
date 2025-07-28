@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addTodo,
@@ -6,7 +6,7 @@ import {
   toggleTodo,
   updateTodo,
 } from "./redux/actions";
-import { type Todo } from "./types/todo";
+import type {  Todo } from "./types/todo";
 import TodoItem from "./components/TodoItem";
 import {  PrimaryButton } from '@fluentui/react/lib/Button';
 import { TextField } from '@fluentui/react/lib/TextField';
@@ -14,15 +14,16 @@ import { TextField } from '@fluentui/react/lib/TextField';
 const App: React.FC = () => {
   const [input, setInput] = useState("");
   const dispatch = useDispatch();
-  const todos: Todo[] = useSelector((state: any) => state);
+  const todos: Todo[] = useSelector((state: any) => state.todos);
 
   const handleAdd = () => {
     if (input.trim()) {
       dispatch(addTodo(input));
+      
       setInput("");
     }
   };
-
+ 
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-5">Todo App</h1>
@@ -35,7 +36,7 @@ const App: React.FC = () => {
       <PrimaryButton onClick={handleAdd}>Add</PrimaryButton>
 </div>
       <ul>
-        {todos.map((todo) => (
+        {todos && todos.map((todo) => (
           <TodoItem
             key={todo.id}
             todo={todo}
